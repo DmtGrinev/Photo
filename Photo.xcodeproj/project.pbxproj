@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		63612B3025D5197E00DA159B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B2F25D5197E00DA159B /* AppDelegate.swift */; };
 		63612B3225D5197E00DA159B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B3125D5197E00DA159B /* SceneDelegate.swift */; };
-		63612B3425D5197E00DA159B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B3325D5197E00DA159B /* ViewController.swift */; };
 		63612B3725D5197E00DA159B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63612B3525D5197E00DA159B /* Main.storyboard */; };
 		63612B3925D5197F00DA159B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63612B3825D5197F00DA159B /* Assets.xcassets */; };
 		63612B3C25D5197F00DA159B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63612B3A25D5197F00DA159B /* LaunchScreen.storyboard */; };
+		63612B4E25D51E4F00DA159B /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B4D25D51E4F00DA159B /* PhotoViewController.swift */; };
+		63612B5625D52AD200DA159B /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B5525D52AD200DA159B /* PhotoCollectionViewCell.swift */; };
+		63612B5A25D52F5100DA159B /* PhotoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B5925D52F5100DA159B /* PhotoViewModel.swift */; };
+		63612B6125D54D1F00DA159B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B6025D54D1F00DA159B /* NetworkService.swift */; };
+		63612B6625D5A46B00DA159B /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63612B6525D5A46B00DA159B /* NetworkDataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		63612B2C25D5197E00DA159B /* Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Photo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63612B2F25D5197E00DA159B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63612B3125D5197E00DA159B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		63612B3325D5197E00DA159B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		63612B3625D5197E00DA159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63612B3825D5197F00DA159B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63612B3B25D5197F00DA159B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63612B3D25D5197F00DA159B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		63612B4D25D51E4F00DA159B /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		63612B5525D52AD200DA159B /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		63612B5925D52F5100DA159B /* PhotoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewModel.swift; sourceTree = "<group>"; };
+		63612B6025D54D1F00DA159B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		63612B6525D5A46B00DA159B /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +66,33 @@
 			children = (
 				63612B2F25D5197E00DA159B /* AppDelegate.swift */,
 				63612B3125D5197E00DA159B /* SceneDelegate.swift */,
-				63612B3325D5197E00DA159B /* ViewController.swift */,
 				63612B3525D5197E00DA159B /* Main.storyboard */,
 				63612B3825D5197F00DA159B /* Assets.xcassets */,
+				63612B4D25D51E4F00DA159B /* PhotoViewController.swift */,
+				63612B5825D52F0F00DA159B /* PhotoModels */,
+				63612B5525D52AD200DA159B /* PhotoCollectionViewCell.swift */,
+				63612B5F25D54CF200DA159B /* Network */,
 				63612B3A25D5197F00DA159B /* LaunchScreen.storyboard */,
 				63612B3D25D5197F00DA159B /* Info.plist */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		63612B5825D52F0F00DA159B /* PhotoModels */ = {
+			isa = PBXGroup;
+			children = (
+				63612B5925D52F5100DA159B /* PhotoViewModel.swift */,
+			);
+			name = PhotoModels;
+			sourceTree = "<group>";
+		};
+		63612B5F25D54CF200DA159B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				63612B6025D54D1F00DA159B /* NetworkService.swift */,
+				63612B6525D5A46B00DA159B /* NetworkDataFetcher.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +165,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63612B3425D5197E00DA159B /* ViewController.swift in Sources */,
+				63612B6625D5A46B00DA159B /* NetworkDataFetcher.swift in Sources */,
+				63612B4E25D51E4F00DA159B /* PhotoViewController.swift in Sources */,
+				63612B5625D52AD200DA159B /* PhotoCollectionViewCell.swift in Sources */,
 				63612B3025D5197E00DA159B /* AppDelegate.swift in Sources */,
 				63612B3225D5197E00DA159B /* SceneDelegate.swift in Sources */,
+				63612B6125D54D1F00DA159B /* NetworkService.swift in Sources */,
+				63612B5A25D52F5100DA159B /* PhotoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
