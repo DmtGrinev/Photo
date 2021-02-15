@@ -34,8 +34,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="356" height="235"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-GQ-N5b">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-GQ-N5b">
                                                     <rect key="frame" x="0.0" y="0.0" width="356" height="235"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0i-w8-311">
                                                     <rect key="frame" x="8" y="206.5" width="340" height="20.5"/>
@@ -46,20 +47,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="m0i-w8-311" firstAttribute="leading" secondItem="PQB-Mf-37v" secondAttribute="leading" constant="8" id="Cpa-yU-UzJ"/>
-                                                <constraint firstItem="d6R-GQ-N5b" firstAttribute="leading" secondItem="PQB-Mf-37v" secondAttribute="leading" id="FLG-Dn-R6C"/>
-                                                <constraint firstItem="d6R-GQ-N5b" firstAttribute="top" secondItem="PQB-Mf-37v" secondAttribute="top" id="WbA-sH-Dxy"/>
-                                                <constraint firstAttribute="bottom" secondItem="d6R-GQ-N5b" secondAttribute="bottom" id="a8z-oD-O3c"/>
                                                 <constraint firstAttribute="trailing" secondItem="m0i-w8-311" secondAttribute="trailing" constant="8" id="fMZ-FA-dWz"/>
                                                 <constraint firstAttribute="bottom" secondItem="m0i-w8-311" secondAttribute="bottom" constant="8" id="g88-CY-eBl"/>
-                                                <constraint firstAttribute="trailing" secondItem="d6R-GQ-N5b" secondAttribute="trailing" id="gDK-iv-Dod"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemGrayColor"/>
                                         <size key="customSize" width="356" height="235"/>
-                                        <connections>
-                                            <outlet property="photoImageView" destination="d6R-GQ-N5b" id="JAq-DS-o2j"/>
-                                            <outlet property="photoLabel" destination="m0i-w8-311" id="i6j-iA-254"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

@@ -28,8 +28,9 @@ class NetworkService {
     
     private func prepareParameters() -> [String: String] {
         var parameters = [String: String]()
+       // parameters["featured"] = String(10)
       //  parameters["query"] = String?
-        parameters["count"] = String(0)
+        parameters["count"] = String(2)
         parameters["orientation"] = "portrait"
         return parameters
     }
@@ -38,7 +39,7 @@ class NetworkService {
         var components = URLComponents()
         components.scheme = "https"
         components.host = "api.unsplash.com"
-        components.path = "/search/photos"
+        components.path = "/photos/random"
         components.queryItems = params.map {URLQueryItem(name: $0, value: $1)}
         return components.url!
     }

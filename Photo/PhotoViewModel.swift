@@ -7,18 +7,20 @@
 
 import Foundation
 
-
-
 struct PhotoViewModel: Decodable {
-    let likes: Int
-    let urls: [URLKind.RawValue: String]
-//     let location: [PhotoName]
-//    let description: String
+    let photos: [CurrentPhoto]
 }
 
-//struct PhotoName: Decodable {
-//    let name: String
-//}
+struct CurrentPhoto: Decodable {
+    let description: String?
+    let width: Int
+    let location: PhotoName?
+    let urls: [URLKind.RawValue: String]
+}
+
+struct PhotoName: Decodable {
+    let name: String?
+}
  
 enum URLKind: String {
     case raw
@@ -26,6 +28,5 @@ enum URLKind: String {
     case regular
     case small
     case thumb
-    
 }
  
