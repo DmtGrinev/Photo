@@ -10,6 +10,7 @@ import Foundation
 class NetworkDataFetcher {
     
     var networkService = NetworkService()
+ //   private var objects = [PhotoViewModel]
     
     func fetchPhoto(completion: @escaping (CurrentPhoto?) -> ()) {
     networkService.request { (data, error) in
@@ -27,7 +28,7 @@ class NetworkDataFetcher {
         guard let data = from else {return nil}
         do {
             let objects = try decoder.decode(type.self, from: data)
-          //  print(objects)
+            print(objects)
             return objects as? T
         } catch let jsonError {
            print("JSON Error", jsonError)

@@ -9,22 +9,32 @@ import UIKit
 
 class PhotoViewController: UIViewController {
     
-    private var photos = [PhotoViewModel]()
+    var collectionView: UICollectionView!
     
     var networkDataFetcher = NetworkDataFetcher()
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    private var photosObject = [PhotoViewModel]()
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        networkDataFetcher.fetchPhoto { (photoResults) in
-            //            photoResults.map { (photo) -> in
-            //                print(photo.urls["small"])
-            //            })
-        }
+       
     }
+    private func configurateCell(cell: PhotoCollectionViewCell, for indexPath: IndexPath) {
+        let photos = self.photosObject[indexPath.item]
+            
+        cell.photoImageView.image = self.photosImage.description
+        
+        
+        let photoUrl = URL(string: self.photosObject[indexPath.item])
+        guard let photoData = try Data(contentsOf: photoUrl) else {return}
+        cell.photoImageView.image = photosImage.image
+    }
+
+    
 }
 
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {
@@ -40,14 +50,15 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(photos.count)
-        return  photos.count
+        print(photosObject.count)
+        return  5 //photos.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+      //  let photos = self.photos[indexPath.item] //1
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reusedId, for: indexPath) as! PhotoCollectionViewCell
         cell.backgroundColor = .systemYellow
         //    let unsplashPhoto = photos[indexPath.item]
-        print("\(photos)" + " !!!!!!!!!!!!!!!!!!!")
+        print("\(photosObject)" + " !!!!!!!!!!!!!!!!!!!")
         // cell.photoImageView.image =
         // cell.photoLabel.text = photos.title
         cell.layer.cornerRadius = 10
@@ -60,8 +71,8 @@ private extension PhotoViewController {
     func setupCollectionView() {
         self.collectionView =  UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        //  self.collectionView.backgroundColor = .systemGray2
-        // self.view.addSubview(collectionView)
+        self.collectionView.backgroundColor = .systemGray2
+        self.view.addSubview(collectionView)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.reusedId)
@@ -71,11 +82,9 @@ private extension PhotoViewController {
     }
 }
 
-extension PhotoViewController {
-    func RRTR() {
-        self.networkDataFetcher.fetchPhoto {(CurrentPhoto?) (results) in
-        guard let fetchedPhotos = results else {return}
-        self.photos = fetchedPhotos
-        }
-    }
-}
+//func TTT() {
+//    NetworkDataFetcher.fetchPhoto() {
+//
+//    }
+//        }
+

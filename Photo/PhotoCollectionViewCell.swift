@@ -20,6 +20,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         return imageView
     }
     
+    var photoLabel: UILabel! {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 17)
+        label.text = "Hi"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }
+    
     var unsplashPhoto: CurrentPhoto! {
            didSet {
                let photoUrl = unsplashPhoto.urls["regular"]
@@ -35,22 +43,18 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupPhotoImageView()
-    }
-    
-    private func setupPhotoImageView() {
-        addSubview(photoImageView)
-        photoImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        photoImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        photoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        setupPhotoLAbel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    @IBOutlet weak var photoLabel: UILabel!
+    func setupPhotoLAbel() {
+        addSubview(photoLabel)
+//        photoLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor).isActive = true
+//        photoLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor).isActive = true
+    }
+   
     
 }
