@@ -71,16 +71,12 @@
 		63612B2E25D5197E00DA159B /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				63612B2F25D5197E00DA159B /* AppDelegate.swift */,
-				63612B3125D5197E00DA159B /* SceneDelegate.swift */,
 				63612B3525D5197E00DA159B /* Main.storyboard */,
-				63612B3825D5197F00DA159B /* Assets.xcassets */,
 				63612B4D25D51E4F00DA159B /* PhotoViewController.swift */,
+				63806DB325DFDF63005515CA /* Cell */,
 				63612B5825D52F0F00DA159B /* PhotoModels */,
-				63612B5525D52AD200DA159B /* PhotoCollectionViewCell.swift */,
 				63612B5F25D54CF200DA159B /* Network */,
-				63612B3A25D5197F00DA159B /* LaunchScreen.storyboard */,
-				63612B3D25D5197F00DA159B /* Info.plist */,
+				63806DB425DFDF77005515CA /* Supporting */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -100,6 +96,26 @@
 				63612B6525D5A46B00DA159B /* NetworkDataFetcher.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		63806DB325DFDF63005515CA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				63612B5525D52AD200DA159B /* PhotoCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		63806DB425DFDF77005515CA /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				63612B2F25D5197E00DA159B /* AppDelegate.swift */,
+				63612B3125D5197E00DA159B /* SceneDelegate.swift */,
+				63612B3825D5197F00DA159B /* Assets.xcassets */,
+				63612B3A25D5197F00DA159B /* LaunchScreen.storyboard */,
+				63612B3D25D5197F00DA159B /* Info.plist */,
+			);
+			path = Supporting;
 			sourceTree = "<group>";
 		};
 		6D6C41E61E83D108CB5A8B96 /* Pods */ = {
@@ -389,7 +405,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GDVJXR2DQ;
-				INFOPLIST_FILE = Photo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Photo/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -409,7 +425,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6GDVJXR2DQ;
-				INFOPLIST_FILE = Photo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Photo/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

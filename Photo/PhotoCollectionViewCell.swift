@@ -14,16 +14,17 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     var photoImageView: UIImageView! {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = .systemGreen
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }
     
     var photoLabel: UILabel! {
-        let label = UILabel()
+        let label = UILabel(frame: CGRect(x: 150, y: 150, width: 200, height: 20))
         label.font = .systemFont(ofSize: 17)
-        label.text = "Hi"
+        label.backgroundColor = .systemGray
+        label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }
@@ -43,6 +44,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupPhotoImageView()
         setupPhotoLAbel()
     }
     
@@ -50,11 +52,14 @@ class PhotoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupPhotoImageView() {
+        addSubview(photoImageView)
+      //  photoImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+    }
+    
     func setupPhotoLAbel() {
         addSubview(photoLabel)
 //        photoLabel.trailingAnchor.constraint(equalTo: photoImageView.trailingAnchor).isActive = true
 //        photoLabel.leadingAnchor.constraint(equalTo: photoImageView.leadingAnchor).isActive = true
     }
-   
-    
 }

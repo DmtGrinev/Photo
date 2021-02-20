@@ -30,7 +30,7 @@ class NetworkService {
         var parameters = [String: String]()
        // parameters["featured"] = String(10)
       //  parameters["query"] = String?
-        parameters["count"] = String(2)
+        parameters["count"] = String(5)
         parameters["orientation"] = "portrait"
         return parameters
     }

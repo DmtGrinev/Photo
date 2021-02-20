@@ -10,31 +10,16 @@ import UIKit
 class PhotoViewController: UIViewController {
     
     var collectionView: UICollectionView!
-    
     var networkDataFetcher = NetworkDataFetcher()
-    
     private var photosObject = [PhotoViewModel]()
-    
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-       
+        networkDataFetcher.fetchPhoto { (objects) in // append array photosObject
+            print(objects ?? "nice photo")
+        }
     }
-    private func configurateCell(cell: PhotoCollectionViewCell, for indexPath: IndexPath) {
-        let photos = self.photosObject[indexPath.item]
-            
-        cell.photoImageView.image = self.photosImage.description
-        
-        
-        let photoUrl = URL(string: self.photosObject[indexPath.item])
-        guard let photoData = try Data(contentsOf: photoUrl) else {return}
-        cell.photoImageView.image = photosImage.image
-    }
-
-    
 }
 
 extension PhotoViewController: UICollectionViewDelegateFlowLayout {
@@ -51,16 +36,15 @@ extension PhotoViewController: UICollectionViewDelegateFlowLayout {
 extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(photosObject.count)
-        return  5 //photos.count
+        return 5 //photosObject.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-      //  let photos = self.photos[indexPath.item] //1
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotoCollectionViewCell.reusedId, for: indexPath) as! PhotoCollectionViewCell
         cell.backgroundColor = .systemYellow
-        //    let unsplashPhoto = photos[indexPath.item]
-        print("\(photosObject)" + " !!!!!!!!!!!!!!!!!!!")
+        
+ // TODO: add text from photos description & photo ([indexPath.item])
         // cell.photoImageView.image =
-        // cell.photoLabel.text = photos.title
+        // cell.photoLabel.text =
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
@@ -70,9 +54,9 @@ extension PhotoViewController: UICollectionViewDelegate, UICollectionViewDataSou
 private extension PhotoViewController {
     func setupCollectionView() {
         self.collectionView =  UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        self.view.addSubview(collectionView)
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.collectionView.backgroundColor = .systemGray2
-        self.view.addSubview(collectionView)
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: PhotoCollectionViewCell.reusedId)
@@ -82,9 +66,4 @@ private extension PhotoViewController {
     }
 }
 
-//func TTT() {
-//    NetworkDataFetcher.fetchPhoto() {
-//
-//    }
-//        }
 
